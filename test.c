@@ -180,18 +180,11 @@ t_stacks	*push_to_b(t_stacks *stack)
 	}
 	else
  	{
-	t_lst		*ptr;
-
-	ptr = stack->b;
-	while(ptr != NULL)
-	{
-	    if(ptr->next == NULL)
-	        break;
-		ptr = ptr->next;
-	}
- 	 ptr->next = stack->a;
-  	stack->a = stack->a->next;
-  	ptr->next->next = NULL;
+		 t_lst *ptr;
+		 ptr = stack->b;
+	stack->b = stack->a;
+	stack->a = stack->a->next;
+	stack->b->next = ptr;
  	}
 	write (1, "pb", 2);
 	return (stack);
@@ -307,11 +300,27 @@ int			last_element_is_less(t_stacks *stack, int mid)
 	return 0;
 }
 
-t_stacks	*ft_add_chunk(t_stacks **stack, int len)
+t_stacks	*ft_add_chunk(t_stacks *stack)
 {
+	t_lst		*ptr;
+	ptr = stack->a;
+	while (ptr != NULL)
+	{
+		ptr->chunk++;
+		ptr = ptr->next;
+	}
+	return (stack);
+}
 
-	return *(stack);
-} 
+t_stacks	*swap_a(t_stacks* stack)
+{
+	t_lst	*ptr;
+	ptr = stack->a;
+	stack->a = stack->a->next;
+	ptr->next = stack->a->next;
+	stack->a->next = ptr;
+	return (stack);
+}
 
 int main(int argc, char **argv)
 {
@@ -322,9 +331,12 @@ int main(int argc, char **argv)
 	stack = ft_create_stack(argv[1]);
 	mid = ft_find_mid(stack);
 	mid_idx = ft_find_less_mid(stack);
-	
 	while (stack->a)
 	{
+		if ((ft_lstsize(stack->a) == 2) || (ft_lstsize(stack->a) == 1))
+		{
+			break;
+		}
 		while (stack->a->content < mid)
 		{
 			stack->a->chunk++;
@@ -347,13 +359,20 @@ int main(int argc, char **argv)
 				stack = rotate_a(stack);
 			}
 		}
+
 		if (chunk_numbers(stack, stack->b->chunk) == mid_idx)
 		{
 			mid = ft_find_mid(stack);
 			mid_idx = ft_find_less_mid(stack);
 			stack = ft_add_chunk(stack);
 		}
-		printf("%d\n", stack->a->next->chunk);
-		break;
+	} 
+	if (ft_lstsize(stack->a) == 2)
+	{
+		if (stack->a->content > stack->a->next->content)
+			stack = swap_a(stack);
 	}
+	if (chunk_numbers(stack, stack->b->chunk) == 1)
+		stack = 
+
 }
