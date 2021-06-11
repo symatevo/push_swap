@@ -319,6 +319,29 @@ t_stacks	*swap_a(t_stacks* stack)
 	stack->a = stack->a->next;
 	ptr->next = stack->a->next;
 	stack->a->next = ptr;
+	write (1, "sa", 2);
+	return (stack);
+}
+
+t_stacks	*push_to_a(t_stacks *stack)
+{
+	t_lst *ptr;
+	ptr = stack->a;
+	stack->a = stack->b;
+	stack->b = stack->b->next;
+	stack->a->next = ptr;
+	write (1, "pa", 2);
+	return (stack);
+}
+
+t_stacks	*swap_b(t_stacks* stack)
+{
+	t_lst	*ptr;
+	ptr = stack->b;
+	stack->b = stack->b->next;
+	ptr->next = stack->b->next;
+	stack->b->next = ptr;
+	write (1, "sb", 2);
 	return (stack);
 }
 
@@ -373,6 +396,13 @@ int main(int argc, char **argv)
 			stack = swap_a(stack);
 	}
 	if (chunk_numbers(stack, stack->b->chunk) == 1)
-		stack = 
-
+		stack = push_to_a(stack);
+	if (chunk_numbers(stack, stack->b->chunk) == 2)
+	{
+		if (stack->b->content < stack->b->next->content)
+			stack = swap_b(stack);
+	}
+	mid = ft_find_mid_in_chunk(stack);
+	mid_idx = ft_find_less_mid_in_chunk(stack);
 }
+

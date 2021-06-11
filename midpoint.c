@@ -43,9 +43,8 @@ int		ft_lstsize(t_lst *lst)
 	return (i);
 }
 
-int     ft_find_less_mid(t_stacks   *stack, int mid)
+int     ft_find_less_mid(t_stacks   *stack)
 {
-    int		i;
     int		len;
     len = ft_lstsize(stack->a);
     len = len/2;

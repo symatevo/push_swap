@@ -25,6 +25,6 @@ void		sort_array(int *used, int n);
 int		ft_lstsize(t_lst *lst);
 int		ft_find_mid(t_stacks	*stack);
 void	ft_lstadd_front(t_lst **alst, t_lst *new);
-int     ft_find_less_mid(t_stacks   *stack, int mid);
+int     ft_find_less_mid(t_stacks   *stack);
 
 #endif
