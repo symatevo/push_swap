@@ -44,10 +44,11 @@ t_stacks	*reverse_rotate_b(t_stacks *stack)
 	t_stack *ptr;
 	t_stack *lptr;
 
+	lptr = NULL;
 	ptr = stack->b;
 	while (ptr != NULL)
 	{
-		if (ptr->next->next = NULL)
+		if (ptr->next->next == NULL)
 		{
 			lptr = ptr;
 			ptr = ptr->next;
@@ -57,7 +58,7 @@ t_stacks	*reverse_rotate_b(t_stacks *stack)
 	}
 	ptr->next = stack->b;
 	stack->b = ptr;
-	lptr->next = NULL:
+	lptr->next = NULL;
 	write (1, "rrb\n", 4);
 	return (stack);
 }

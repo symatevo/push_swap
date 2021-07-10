@@ -30,5 +30,6 @@ t_stacks	*reverse_rotate_b(t_stacks *stack);
 int         ft_find_mid(t_stacks	*stacks);
 void		sort_array(int *used, int n);
 int         ft_len(char *str);
+void		array_implement(int *used, t_stacks *stacks);
 
 #endif

@@ -1,18 +1,45 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void    error_check(int argc, char **argv, int n)
+void	free_stack(t_stack *root)
 {
-    int i;
+	t_stack *temp;
 
-    if (argc == 1)
-        exit (0);
-    if (n == 1)
-    {
-        
-    }
+	temp = NULL;
+	if (root == NULL)
+		return ;
+	while (root)
+	{
+		temp = root;
+		root = root->next;
+		free(temp);
+	}
+}
+
+int	ft_cmp(int value1, int value2)
+{
+	if (value1 == value2)
+		return (0);
+	else
+		return (1);
 }
 
 void    error_doubles_check(t_stack *lst)
 {
+	t_stack	*future;
 
+	while (lst)
+	{
+		future = lst->next;
+		while (future)
+		{
+			if (!ft_cmp(lst->content, future->content))
+			{
+				write(1, "Error\n", 6);
+				free_stack(lst);
+				exit(0);
+			}
+			future = future->next;
+		}
+		lst = lst->next;
+	}
 }

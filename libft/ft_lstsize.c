@@ -17,9 +17,9 @@ int		ft_lsttsize(t_list *list)
 	int		i;
 
 	i = 0;
-	while (lst)
+	while (list)
 	{
-		lst = lst->next;
+		list = list->next;
 		i++;
 	}
 	return (i);

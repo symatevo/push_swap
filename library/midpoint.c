@@ -30,18 +30,36 @@ void		sort_array(int *used, int n)
 	}
 }
 
-int		ft_find_mid(t_stacks	*stacks)
+void		array_implement(int *used, t_stacks *stacks)
 {
 	int		i;
 	int		len;
 	len = ft_lstsize(stacks->a);
-	int		used[len];
 	t_stack		*ptr;
+
 	i = 0;
 	ptr = stacks->a;
 	while (ptr != NULL)
 	{
 		used[i] = ptr->content;
+		ptr = ptr->next;
+		i++;
+	}
+}
+	
+
+int		ft_find_mid(t_stacks	*stacks)
+{
+	int		i;
+	t_stack		*ptr;
+	i = 0;
+	int len;
+	len = ft_lstsize(stacks->a);
+	int		used[len];
+	array_implement(used, stacks);
+	ptr = stacks->a;
+	while (ptr != NULL)
+	{
 		ptr = ptr->next;
 		i++;
 	}
