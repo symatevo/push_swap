@@ -23,6 +23,39 @@ int	ft_cmp(int value1, int value2)
 		return (1);
 }
 
+void	error_check_one(char *argv)
+{
+	int j;
+	j = 0;
+	
+	while (argv[j])
+	{
+		if ((argv[j] < '0' || argv[j] > '9') && argv[j] != ' ' && argv[j] != '-' && argv)
+			{
+				write(1, "Error\n", 6);
+				exit(0);
+			}
+		j++;
+	}
+	if (ft_atoi_err(argv, 1) == -1)
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
+}
+
+void	error_check_two(int argc, char **argv)
+{
+	while (--argc > 0)
+	{
+		if (ft_atoi_err(argv[argc], 0) == -1)
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
+	}
+}
+
 void    error_doubles_check(t_stack *lst)
 {
 	t_stack	*future;

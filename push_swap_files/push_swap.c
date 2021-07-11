@@ -22,10 +22,14 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 2)
 	{
+		error_check_one(argv[1]);
         	stack_a = ft_create_stack(ft_len(argv[1]), argv, 1);
 	}
 	else
+	{
+		error_check_two(argc, argv);
 		stack_a = ft_create_stack(argc, argv, 0);
+	}
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	stacks->a = stack_a;
 	stacks->b = stack_b;
