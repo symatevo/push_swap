@@ -6,7 +6,7 @@
 /*   By: symatevo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 16:36:17 by symatevo          #+#    #+#             */
-/*   Updated: 2021/04/03 16:36:37 by symatevo         ###   ########.fr       */
+/*   Updated: 2021/07/11 13:41:08 by symatevo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(char *str);
-
+int					ft_atoi_err(const char *str, int k);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
