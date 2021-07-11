@@ -27,6 +27,11 @@ int	ft_return_int(char *str, int len)
 	int i;
 	int numb;
 
+	if (len == 1 && *str == '-')
+	{
+		numb = ft_atoi(str);
+		return (numb);
+	}
 	numb = 0;
 	i = 0;
 	len--;
