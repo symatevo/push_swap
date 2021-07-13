@@ -1,8 +1,8 @@
 NAME = push_swap
 
-SRC = push_swap_files/push_swap.c push_swap_files/error_check.c \
+SRC = push_swap_files/push_swap.c\
 		push_swap_files/sort_three.c push_swap_files/sort_five.c \
-		push_swap_files/main_sort.c
+		push_swap_files/sort_main.c
 
 OBJ = *.o
 
