@@ -1,3 +1,4 @@
+## Summary
 
 In this project, you are required to create a program that should take a list of integers as input and output a series of operations to sort the list using only two stacks and a specific set of operations.
 
